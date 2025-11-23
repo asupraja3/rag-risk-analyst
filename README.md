@@ -7,43 +7,31 @@ Rag-Risk-Analyst is a specialized Retrieval-Augmented Generation (RAG) chatbot d
 
 ```mermaid
 graph TD
-    A[User Query] --> B[Embedding Model]
-    B --> C[FAISS Vector Search]
-    C -->|Top 10 Matches| D[FlashRank Reranker]
-    D -->|Top 3 Verified Contexts| E[LLM - GPT-4]
-    E -->|System Prompt Enforcement| F[Final Analyst Report]
-
-graph TD
-    %% Define styles for better visualization
+    %% Define styles for colors
     classDef ingestion fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
     classDef query fill:#fff3e0,stroke:#e65100,stroke-width:2px;
     classDef store fill:#d7ccc8,stroke:#5d4037,stroke-width:2px,shape:cyl;
 
-    %% Ingestion Pipeline
+    %% Subgraph 1: Ingestion
     subgraph "1. Ingestion Pipeline"
-        P[PDF Documents]:::ingestion --> Q[Chunking (Recursive)]:::ingestion
-        Q --> R[Embedding (MiniLM)]:::ingestion
-        R --> C[(FAISS Vector Store)]:::store
+        P["PDF Documents"]:::ingestion --> Q["Chunking (Recursive)"]:::ingestion
+        Q --> R["Embedding (MiniLM)"]:::ingestion
+        R --> C[("FAISS Vector Store")]:::store
     end
 
-    %% Query Pipeline
+    %% Subgraph 2: Query
     subgraph "2. Query & Retrieval Pipeline"
-        A[User Question]:::query --> B[Embedding Model]:::query
+        A["User Question"]:::query --> B["Embedding Model"]:::query
         B --> C
-        C -->|Top 10 Matches| D[Reranking (Flashrank)]:::query
-        D -->|Top 3 Verified Contexts| E[LLM Synthesis (GPT-4)]:::query
-        E -->|System Prompt Enforcement| F[Analyst Response]:::query
+        C -->|Top 10 Matches| D["Reranking (Flashrank)"]:::query
+        D -->|Top 3 Verified Contexts| E["LLM Synthesis (GPT-4)"]:::query
+        E -->|System Prompt Enforcement| F["Analyst Response"]:::query
     end
 
-    %% Link styles so it's clear ingestion feeds the store that query reads from
+    %% Link styles
     linkStyle 0,1,2 stroke:#01579b,stroke-width:2px;
     linkStyle 3,4,5,6,7 stroke:#e65100,stroke-width:2px;
-
-### **Flow of Information:**
-1. **Ingestion:** PDF Document -> Chunking (Recursive) -> Embedding (MiniLM) -> Vector Store (FAISS).
-2. **Query:** User Question -> Vector Similarity Search -> **Reranking (Flashrank)** -> LLM Synthesis -> Analyst Response.
-
-# Fortress-Financial-Analyst
+```
 
 ## 🔄 Architecture: MVP vs. Real-Time Production (Citadel Style)
 
