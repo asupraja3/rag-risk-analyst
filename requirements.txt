@@ -12,3 +12,4 @@ langchain-huggingface
 python-dotenv
 transformers
 torch
+tf-keras

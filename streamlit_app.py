@@ -61,11 +61,12 @@ def load_llm_pipeline():
     # In Prod: This would be Llama-3-8B or GPT-4 via API.
     generator = pipeline(
         "text-generation",
-        model="sshleifer/tiny-gpt2",
+        model = "distilgpt2",
+        # model="sshleifer/tiny-gpt2",
         # model = "TheBloke/guanaco-7B-HF", #Too huge for vercel
-        max_new_tokens=100,
+        max_new_tokens=100
 
-        device_map="auto"
+        # device_map="auto"
     )
     return HuggingFacePipeline(pipeline=generator)
 
