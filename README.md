@@ -33,7 +33,7 @@ graph TD
     linkStyle 3,4,5,6,7 stroke:#e65100,stroke-width:2px;
 ```
 
-## 🔄 Architecture: MVP vs. Real-Time Production
+## Architecture: MVP vs. Real-Time Production
 
 This repository implements an **MVP (Minimum Viable Product)** using lightweight tools. However, the architecture is designed to be swappable for a high-frequency, real-time production environment.
 

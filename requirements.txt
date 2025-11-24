@@ -1,0 +1,14 @@
+langchain
+langchain-community
+langchain-openai
+faiss-cpu
+pypdf
+sentence-transformers
+flashrank
+streamlit
+watchdog
+langchain-core
+langchain-huggingface
+python-dotenv
+transformers
+torch
