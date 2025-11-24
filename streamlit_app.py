@@ -21,7 +21,7 @@ st.markdown("""
 <style>
     .stChatInput {border-radius: 10px;}
     .reportview-container {background: #0e1117;}
-    h1 {color: #00d4b3;} /* Citadel-like Green/Blue */
+    h1 {color: #00d4b3;} /* ProjectC-like Green/Blue */
     .stExpander {border: 1px solid #333;}
 </style>
 """, unsafe_allow_html=True)
