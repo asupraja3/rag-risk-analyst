@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 from sec_api import PdfGeneratorApi
 load_dotenv()
+#API to download PDFs
 api_key = os.getenv("PDF_API_KEY")
 
 pdfGeneratorApi = PdfGeneratorApi(api_key)
